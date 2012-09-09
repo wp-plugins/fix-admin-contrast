@@ -6,11 +6,11 @@
  *
  * This plugin does not make any permanent changes.
  *
- * Plugin URI: http://blogyul.miqrogroove.com/about/
+ * Plugin URI: http://www.miqrogroove.com/pro/software/
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.0
+ * @version: 1.1
  * @copyright Copyright © 2010 by Robert Chapin
  * @license GPL
  *
@@ -42,16 +42,26 @@ function miqro_contrast_hook() {
     $wpversion = get_bloginfo('version');
     if (strlen($wpversion) >= 3) {
         $wpversion = intval($wpversion[0].$wpversion[2]);
-        if ($wpversion >= 27 and $wpversion <= 29)
+        if ($wpversion >= 27) {
+            if ($wpversion > 29) $wpversion = 29;
             add_action('admin_head', 'miqro_fix_admin_contrast_'.$wpversion, 10, 0);
+        }
     }
 }
 
+/**
+ * Tested and working on 2.9 and 3.0.
+ * Corrects both colors-fresh.css and ie.css.
+ */
 function miqro_fix_admin_contrast_29() {
 ?>
 <style type="text/css">
+#namediv input,
 * html input,
 * html .widget,
+* html .stuffbox,
+* html .stuffbox input,
+* html .stuffbox textarea,
 .widefat,
 textarea,
 select {
