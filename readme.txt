@@ -2,8 +2,8 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, fields, theme
 Requires at least: 2.7
-Tested up to: 3.3.3
-Stable tag: 1.1
+Tested up to: 3.4.2
+Stable tag: 1.2
 
 Patches WordPress bug #8730 for input border-color contrast.
 
@@ -23,6 +23,10 @@ This is a zero-configuration plugin.  There are no settings.
 Deactivation removes everything except the files you uploaded.  There is no "uninstall" necessary.
 
 == Changelog ==
+
+= 1.2 =
+* Updated for WordPress 3.4, released 9 September 2012.
+* Fixed contrast on the Quick Edit features.
 
 = 1.1 =
 * Updated for WordPress 3.0, released 17 June 2010.

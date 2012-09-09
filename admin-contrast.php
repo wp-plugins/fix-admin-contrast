@@ -10,8 +10,8 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.1
- * @copyright Copyright © 2010 by Robert Chapin
+ * @version: 1.2
+ * @copyright Copyright © 2012 by Robert Chapin
  * @license GPL
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,6 +30,10 @@
  
 /* Plugin Bootup */
 
+if (!function_exists('add_action')) {
+    header('HTTP/1.0 403 Forbidden');
+    exit("Not allowed to run this file directly.");
+}
 add_action('admin_init', 'miqro_contrast_hook', 10, 0);
 
 
@@ -43,14 +47,51 @@ function miqro_contrast_hook() {
     if (strlen($wpversion) >= 3) {
         $wpversion = intval($wpversion[0].$wpversion[2]);
         if ($wpversion >= 27) {
-            if ($wpversion > 29) $wpversion = 29;
+            if ($wpversion > 34) $wpversion = 34;
+            elseif ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
             add_action('admin_head', 'miqro_fix_admin_contrast_'.$wpversion, 10, 0);
         }
     }
 }
 
 /**
- * Tested and working on 2.9 and 3.0.
+ * Tested and working on 3.4.
+ * Corrects both colors-fresh.css and ie.css.
+ */
+function miqro_fix_admin_contrast_34() {
+?>
+<style type="text/css">
+* html input,
+* html .stuffbox,
+* html .stuffbox input,
+* html .stuffbox textarea {
+    border-color: #BBB;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+select,
+#timestampdiv input,
+#namediv input,
+.inline-edit-row fieldset input[type="text"],
+.inline-edit-row fieldset textarea {
+    border-color: #BBB;
+}
+</style>
+<?php
+}
+
+/**
+ * Tested and working on 2.9 through 3.3.
  * Corrects both colors-fresh.css and ie.css.
  */
 function miqro_fix_admin_contrast_29() {
@@ -72,7 +113,9 @@ input[type="password"],
 input[type="file"],
 input[type="button"],
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+.inline-edit-row fieldset input[type="text"],
+.inline-edit-row fieldset textarea {
     border-color: #BBB;
 }
 </style>
