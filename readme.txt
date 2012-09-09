@@ -1,0 +1,28 @@
+=== Fix Admin Contrast ===
+Contributors: miqrogroove
+Tags: admin, contrast, input, inputs, fields, theme
+Requires at least: 2.7
+Tested up to: 2.9.1
+Stable tag: 1.0
+
+Patches WordPress bug #8730 for input border-color contrast.
+
+== Description ==
+
+Input fields on the WordPress admin screens have been nearly invisible since version 2.7.
+After a year of hacking CSS files to work around this problem, Matt suggested I make
+a plugin for the "admin_head" hook feature to override core CSS values.  Thus, this plugin was born.
+
+== Installation ==
+
+1. Upload the `admin-contrast` directory to your `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+
+This is a zero-configuration plugin.  There are no settings.
+
+Deactivation removes everything except the files you uploaded.  There is no "uninstall" necessary.
+
+== Changelog ==
+
+= 1.0 =
+* First version, released 15 January 2010.
