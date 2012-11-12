@@ -55,7 +55,7 @@ function miqro_contrast_hook() {
 }
 
 /**
- * Tested and working on 3.4.
+ * Tested and working on 3.4 through 3.5 beta 2.
  * Corrects both colors-fresh.css and ie.css.
  */
 function miqro_fix_admin_contrast_34() {

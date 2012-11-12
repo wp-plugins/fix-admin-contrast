@@ -2,10 +2,10 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, fields, theme
 Requires at least: 2.7
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: 1.2
 
-Patches WordPress bug #8730 for input border-color contrast.
+Improves the visibility of administratie form field inputs.
 
 == Description ==
 
