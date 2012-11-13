@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Fix Admin Contrast
  *
- * Description: Patches WordPress bug #8730 for input border-color contrast.
+ * Description: Improves the visibility of administrative form field inputs.
  *
  * This plugin does not make any permanent changes.
  *
@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.2
+ * @version: 1.3
  * @copyright Copyright © 2012 by Robert Chapin
  * @license GPL
  *
@@ -55,8 +55,11 @@ function miqro_contrast_hook() {
 }
 
 /**
- * Tested and working on 3.4 through 3.5 beta 2.
+ * Tested and working on 3.4 through 3.5-beta3.
  * Corrects both colors-fresh.css and ie.css.
+ * As of 3.5, these styles are found in:
+ *  wp-admin\css\wp-admin.css
+ *  wp-includes\css\buttons.css
  */
 function miqro_fix_admin_contrast_34() {
 ?>
@@ -85,6 +88,9 @@ select,
 .inline-edit-row fieldset input[type="text"],
 .inline-edit-row fieldset textarea {
     border-color: #BBB;
+}
+input.button-primary {
+    border-color: #298cba;
 }
 </style>
 <?php

@@ -1,11 +1,11 @@
 === Fix Admin Contrast ===
 Contributors: miqrogroove
-Tags: admin, contrast, input, inputs, fields, theme
+Tags: admin, contrast, input, inputs, field, fields, theme
 Requires at least: 2.7
 Tested up to: 3.5
-Stable tag: 1.2
+Stable tag: 1.3
 
-Improves the visibility of administratie form field inputs.
+Improves the visibility of administrative form field inputs.
 
 == Description ==
 
@@ -23,6 +23,10 @@ This is a zero-configuration plugin.  There are no settings.
 Deactivation removes everything except the files you uploaded.  There is no "uninstall" necessary.
 
 == Changelog ==
+
+= 1.3 =
+* Minor fix, released 13 November 2012.
+* Blue submit buttons will have WP default colors.
 
 = 1.2 =
 * Updated for WordPress 3.4, released 9 September 2012.
