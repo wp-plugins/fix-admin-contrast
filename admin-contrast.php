@@ -10,8 +10,8 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.3
- * @copyright Copyright © 2012 by Robert Chapin
+ * @version: 1.4 beta
+ * @copyright Copyright © 2010-2012 by Robert Chapin
  * @license GPL
  *
  * This program is free software: you can redistribute it and/or modify
@@ -92,6 +92,20 @@ select,
 input.button-primary {
     border-color: #298cba;
 }
+<?php if ('classic' == get_user_option('admin_color')) { ?>
+.postbox div.alt {
+    background-color: #DFF1FF;
+}
+<?php } else { ?>
+.postbox div.alt,
+.widefat,
+.plugins .inactive,
+.plugins .inactive th,
+.plugins .inactive td,
+tr.inactive + tr.plugin-update-tr .plugin-update {
+    background-color: #EEE;
+}
+<?php } ?>
 </style>
 <?php
 }
