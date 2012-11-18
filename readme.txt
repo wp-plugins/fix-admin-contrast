@@ -25,6 +25,10 @@ This is a zero-configuration plugin.  There are no settings.
 
 Deactivation removes everything except the files you uploaded.  There is no "uninstall" necessary.
 
+== Screenshots ==
+
+1. This is a comparison of the Categories page with the plugin enabled (top) and disabled (bottom).
+
 == Changelog ==
 
 = 1.4 =

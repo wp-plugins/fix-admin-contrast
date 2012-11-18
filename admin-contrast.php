@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Fix Admin Contrast
  *
- * Description: Improves the visibility of administrative form field inputs.
+ * Description: Improves the visibility of administrative form fields and tables.
  *
  * This plugin does not make any permanent changes.
  *
@@ -58,6 +58,8 @@ function miqro_contrast_hook() {
  * Tested and working on 3.4 through 3.5-beta3.
  * Corrects both colors-fresh.css and ie.css.
  * As of 3.5, these styles are found in:
+ *  wp-admin\css\colors-classic.css
+ *  wp-admin\css\colors-fresh.css
  *  wp-admin\css\wp-admin.css
  *  wp-includes\css\buttons.css
  */
