@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.4 beta
+ * @version: 1.4
  * @copyright Copyright © 2010-2012 by Robert Chapin
  * @license GPL
  *
@@ -44,24 +44,66 @@ add_action('admin_init', 'miqro_contrast_hook', 10, 0);
  */
 function miqro_contrast_hook() {
     $wpversion = get_bloginfo('version');
-    if (strlen($wpversion) >= 3) {
-        $wpversion = intval($wpversion[0].$wpversion[2]);
-        if ($wpversion >= 27) {
-            if ($wpversion > 34) $wpversion = 34;
-            elseif ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
-            add_action('admin_head', 'miqro_fix_admin_contrast_'.$wpversion, 10, 0);
-        }
+    if (strlen($wpversion) < 3) return;
+    $wpversion = intval($wpversion[0].$wpversion[2]);
+    if ($wpversion < 27) return;
+    if ($wpversion > 35) $wpversion = 35;
+    elseif ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
+    $callback = "miqro_fix_admin_contrast_$wpversion";
+
+    if ($wpversion >= 35) {
+        add_action('admin_print_footer_scripts', $callback, 10, 0); // Must appear after media styles.
+    } else {
+        add_action('admin_head', $callback, 10, 0);
     }
 }
 
 /**
- * Tested and working on 3.4 through 3.5-beta3.
- * Corrects both colors-fresh.css and ie.css.
- * As of 3.5, these styles are found in:
+ * Tested and working on 3.5 RC1.
+ * Corrects the styles found in:
  *  wp-admin\css\colors-classic.css
  *  wp-admin\css\colors-fresh.css
  *  wp-admin\css\wp-admin.css
  *  wp-includes\css\buttons.css
+ *  wp-includes\css\media-views.css
+ */
+function miqro_fix_admin_contrast_35() {
+?>
+<style type="text/css">
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+select,
+.widefat {
+    border-color: #BBB;
+}
+<?php if ('classic' == get_user_option('admin_color')) { ?>
+.postbox div.alt {
+    background-color: #DFF1FF;
+}
+<?php } else { ?>
+.postbox div.alt,
+.widefat,
+.plugins .inactive,
+.plugins .inactive th,
+.plugins .inactive td,
+tr.inactive + tr.plugin-update-tr .plugin-update {
+    background-color: #EEE;
+}
+<?php } ?>
+</style>
+<?php
+}
+
+/**
+ * Tested and working on 3.4.
+ * Corrects both colors-fresh.css and ie.css.
  */
 function miqro_fix_admin_contrast_34() {
 ?>

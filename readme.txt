@@ -11,10 +11,10 @@ Improves the visibility of administrative form fields and tables.
 
 Input fields on the WordPress admin screens have been nearly invisible since version 2.7.
 After a year of hacking CSS files to work around this problem, Matt suggested I make
-a plugin for the "admin_head" hook feature to override core CSS values.  Thus, this plugin was born.
+a plugin to override core CSS values.  Thus, this plugin was born.
 
-Fix Admin Contrast has been expanded to correct white point issues on iPad and similar displays
-where the administrative table colors were indistinguishable from the background color.
+Fix Admin Contrast now also corrects white point issues on iPad and similar displays.
+Without this plugin, the administrative table colors can look the same as the background color.
 
 == Installation ==
 
@@ -32,7 +32,9 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 == Changelog ==
 
 = 1.4 =
-* Expanded purpose, ...
+* Updated for WordPress 3.5, ...
+* Fixed contrast on the caption input for library image editing.
+* Expanded purpose: Identified alternating row colors as needing more contrast.
 * Fixed contrast on alternating table rows.
 
 = 1.3 =
