@@ -2,7 +2,7 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme
 Requires at least: 2.7
-Tested up to: 3.5
+Tested up to: 3.4.2
 Stable tag: 1.3
 
 Improves the visibility of administrative form field inputs.
