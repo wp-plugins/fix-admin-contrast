@@ -3,7 +3,7 @@ Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
 Tested up to: 3.5
-Stable tag: 1.3
+Stable tag: 1.4
 
 Improves the visibility of administrative form fields and tables.
 
@@ -32,10 +32,11 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 == Changelog ==
 
 = 1.4 =
-* Updated for WordPress 3.5, ...
+* Updated for WordPress 3.5, released 23 November 2012.
 * Fixed contrast on the caption input for library image editing.
+* Fixed contrast on the new media modal screens.
 * Expanded purpose: Identified alternating row colors as needing more contrast.
-* Fixed contrast on alternating table rows.
+* Fixed contrast on alternating table rows for WordPress 3.4+
 
 = 1.3 =
 * Minor fix, released 13 November 2012.
