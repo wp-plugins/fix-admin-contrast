@@ -44,8 +44,17 @@ add_action('login_head', 'miqro_contrast_login', 10, 0);
  * Hooks up the administration logic.
  */
 function miqro_contrast_hook() {
-    $callback = miqro_contrast_get_callback();
-    if (!empty($callback)) add_action('admin_head', $callback, 10, 0);
+    $oldest = 27;
+    $newest = 35;
+
+    $wpversion = get_bloginfo('version');
+    if (strlen($wpversion) < 3) return;
+    $wpversion = min($newest, intval($wpversion[0].$wpversion[2]));
+    if ($wpversion < $oldest) return;
+    if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
+    $callback = "miqro_fix_admin_contrast_$wpversion";
+
+    add_action('admin_head', $callback, 10, 0);
 }
 
 /**
@@ -54,29 +63,16 @@ function miqro_contrast_hook() {
  * @since 1.5
  */
 function miqro_contrast_login() {
-    $oldest = 33;
-    $callback = miqro_contrast_get_callback($oldest);
-    if (!empty($callback)) call_user_func($callback);
-}
-
-/**
- * Selects one of the following output functions based on WP version.
- *
- * @since 1.5
- *
- * @param int $oldest Optional.  The oldest WP version supported.
- * @return callback
- */
-function miqro_contrast_get_callback($oldest = 27) {
-    $newest = 35;
+    $oldest = 31;
+    $newest = 31;
 
     $wpversion = get_bloginfo('version');
     if (strlen($wpversion) < 3) return;
     $wpversion = min($newest, intval($wpversion[0].$wpversion[2]));
     if ($wpversion < $oldest) return;
-    if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
+    $callback = "miqro_fix_login_contrast_$wpversion";
 
-    return "miqro_fix_admin_contrast_$wpversion";
+    call_user_func($callback);
 }
 
 /**
@@ -235,6 +231,21 @@ function miqro_fix_admin_contrast_27() {
 .form-field input,
 .form-field textarea,
 .submit {
+    border-color: #BBB;
+}
+</style>
+<?php
+}
+
+/**
+ * Tested and working on 3.1 through 3.5-RC2.
+ * Corrects login.css or wp-admin.css.
+ */
+function miqro_fix_login_contrast_31() {
+?>
+<style type="text/css">
+.login form .input,
+.login input[type="text"] {
     border-color: #BBB;
 }
 </style>

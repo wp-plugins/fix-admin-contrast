@@ -33,7 +33,7 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 
 = 1.5 =
 * Updated ...
-* Fixed contrast on the login page for WordPress 3.3+
+* Fixed contrast on the login page for WordPress 3.1+
 
 = 1.4.1 =
 * Updated for WordPress 3.5, released 30 November 2012.
