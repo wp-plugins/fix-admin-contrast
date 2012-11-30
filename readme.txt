@@ -3,7 +3,7 @@ Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
 Tested up to: 3.5
-Stable tag: 1.4
+Stable tag: 1.4.1
 
 Improves the visibility of administrative form fields and tables.
 
@@ -30,6 +30,11 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 1. This is a comparison of the Categories page with the plugin enabled (top) and disabled (bottom).
 
 == Changelog ==
+
+= 1.4.1 =
+* Updated for WordPress 3.5, released 30 November 2012.
+* Fixed media modal contrast, broken by changes in 3.5-RC2.
+* Adjusted to avoid targeting 3.5 with bloated footer code.
 
 = 1.4 =
 * Updated for WordPress 3.5, released 23 November 2012.

@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.4
+ * @version: 1.4.1
  * @copyright Copyright © 2010-2012 by Robert Chapin
  * @license GPL
  *
@@ -51,15 +51,11 @@ function miqro_contrast_hook() {
     elseif ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
     $callback = "miqro_fix_admin_contrast_$wpversion";
 
-    if ($wpversion >= 35) {
-        add_action('admin_print_footer_scripts', $callback, 10, 0); // Must appear after media styles.
-    } else {
-        add_action('admin_head', $callback, 10, 0);
-    }
+    add_action('admin_head', $callback, 10, 0);
 }
 
 /**
- * Tested and working on 3.5 RC1.
+ * Tested and working on 3.5 RC2.
  * Corrects the styles found in:
  *  wp-admin\css\colors-classic.css
  *  wp-admin\css\colors-fresh.css
@@ -81,7 +77,7 @@ input[type="tel"],
 input[type="url"],
 select,
 .widefat {
-    border-color: #BBB;
+    border-color: #BBB !important;
 }
 <?php if ('classic' == get_user_option('admin_color')) { ?>
 .postbox div.alt {
