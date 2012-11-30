@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.4.1
+ * @version: 1.5 alpha
  * @copyright Copyright © 2010-2012 by Robert Chapin
  * @license GPL
  *
@@ -35,33 +35,58 @@ if (!function_exists('add_action')) {
     exit("Not allowed to run this file directly.");
 }
 add_action('admin_init', 'miqro_contrast_hook', 10, 0);
+add_action('login_head', 'miqro_contrast_login', 10, 0);
 
 
 /* Plugin Functions */
 
 /**
- * Hooks one of the following output functions based on WP version.
+ * Hooks up the administration logic.
  */
 function miqro_contrast_hook() {
+    $callback = miqro_contrast_get_callback();
+    if (!empty($callback)) add_action('admin_head', $callback, 10, 0);
+}
+
+/**
+ * Login page logic.
+ *
+ * @since 1.5
+ */
+function miqro_contrast_login() {
+    $oldest = 33;
+    $callback = miqro_contrast_get_callback($oldest);
+    if (!empty($callback)) call_user_func($callback);
+}
+
+/**
+ * Selects one of the following output functions based on WP version.
+ *
+ * @since 1.5
+ *
+ * @param int $oldest Optional.  The oldest WP version supported.
+ * @return callback
+ */
+function miqro_contrast_get_callback($oldest = 27) {
+    $newest = 35;
+
     $wpversion = get_bloginfo('version');
     if (strlen($wpversion) < 3) return;
-    $wpversion = intval($wpversion[0].$wpversion[2]);
-    if ($wpversion < 27) return;
-    if ($wpversion > 35) $wpversion = 35;
-    elseif ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
-    $callback = "miqro_fix_admin_contrast_$wpversion";
+    $wpversion = min($newest, intval($wpversion[0].$wpversion[2]));
+    if ($wpversion < $oldest) return;
+    if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
 
-    add_action('admin_head', $callback, 10, 0);
+    return "miqro_fix_admin_contrast_$wpversion";
 }
 
 /**
  * Tested and working on 3.5 RC2.
  * Corrects the styles found in:
- *  wp-admin\css\colors-classic.css
- *  wp-admin\css\colors-fresh.css
- *  wp-admin\css\wp-admin.css
- *  wp-includes\css\buttons.css
- *  wp-includes\css\media-views.css
+ *  wp-admin/css/colors-classic.css
+ *  wp-admin/css/colors-fresh.css
+ *  wp-admin/css/wp-admin.css
+ *  wp-includes/css/buttons.css
+ *  wp-includes/css/media-views.css
  */
 function miqro_fix_admin_contrast_35() {
 ?>
@@ -177,6 +202,9 @@ input[type="reset"],
 .inline-edit-row fieldset input[type="text"],
 .inline-edit-row fieldset textarea {
     border-color: #BBB;
+}
+input.button-primary {
+    border-color: #298cba;
 }
 </style>
 <?php
