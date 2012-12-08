@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.5 alpha
+ * @version: 1.4.2 beta
  * @copyright Copyright © 2010-2012 by Robert Chapin
  * @license GPL
  *
@@ -41,7 +41,7 @@ add_action('login_head', 'miqro_contrast_login', 10, 0);
 /* Plugin Functions */
 
 /**
- * Hooks up the administration logic.
+ * Hooks one of the following admin output functions based on WP version.
  */
 function miqro_contrast_hook() {
     $oldest = 27;
@@ -58,7 +58,7 @@ function miqro_contrast_hook() {
 }
 
 /**
- * Login page logic.
+ * Calls my login_head output function based on WP version.
  *
  * @since 1.5
  */
@@ -76,7 +76,7 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.5 RC2.
+ * Tested and working on 3.5-RC5.
  * Corrects the styles found in:
  *  wp-admin/css/colors-classic.css
  *  wp-admin/css/colors-fresh.css
@@ -238,7 +238,7 @@ function miqro_fix_admin_contrast_27() {
 }
 
 /**
- * Tested and working on 3.1 through 3.5-RC2.
+ * Tested and working on 3.1 through 3.5-RC5.
  * Corrects login.css or wp-admin.css.
  */
 function miqro_fix_login_contrast_31() {

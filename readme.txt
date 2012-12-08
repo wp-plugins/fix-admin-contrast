@@ -31,9 +31,11 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 
 == Changelog ==
 
-= 1.5 =
-* Updated ...
+= 1.4.2 =
+* Login improvement, ...
 * Fixed contrast on the login page for WordPress 3.1+
+* Made the blue button bugfix effective for WordPress 2.9+ instead of only 3.4.
+* WordPress 3.5-RC5 tested.
 
 = 1.4.1 =
 * Updated for WordPress 3.5, released 30 November 2012.
