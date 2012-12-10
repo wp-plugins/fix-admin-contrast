@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.4.2 beta
+ * @version: 1.4.2
  * @copyright Copyright © 2010-2012 by Robert Chapin
  * @license GPL
  *
@@ -76,7 +76,7 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.5-RC5.
+ * Tested and working on 3.5-RC6.
  * Corrects the styles found in:
  *  wp-admin/css/colors-classic.css
  *  wp-admin/css/colors-fresh.css
@@ -238,7 +238,7 @@ function miqro_fix_admin_contrast_27() {
 }
 
 /**
- * Tested and working on 3.1 through 3.5-RC5.
+ * Tested and working on 3.1 through 3.5-RC6.
  * Corrects login.css or wp-admin.css.
  */
 function miqro_fix_login_contrast_31() {
