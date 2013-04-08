@@ -2,8 +2,8 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
-Tested up to: 3.5
-Stable tag: 1.4.2
+Tested up to: 3.6
+Stable tag: 1.4.3
 
 Improves the visibility of administrative form fields and tables.
 
@@ -32,11 +32,14 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 
 == Changelog ==
 
+= 1.4.3 =
+* Updated for WordPress 3.6, released 8 April 2013.
+* Fixed contrast on the Theme Customizer for WordPress 3.4+.
+
 = 1.4.2 =
 * Login improvement, released 10 December 2012.
 * Fixed contrast on the login page for WordPress 3.1+
 * Made the blue button bugfix effective for WordPress 2.9+ instead of only 3.4.
-* WordPress 3.5-RC6 tested.
 
 = 1.4.1 =
 * Updated for WordPress 3.5, released 30 November 2012.

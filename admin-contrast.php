@@ -10,8 +10,8 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.4.2
- * @copyright Copyright © 2010-2012 by Robert Chapin
+ * @version: 1.4.3
+ * @copyright Copyright © 2010-2013 by Robert Chapin
  * @license GPL
  *
  * This program is free software: you can redistribute it and/or modify
@@ -55,12 +55,13 @@ function miqro_contrast_hook() {
     $callback = "miqro_fix_admin_contrast_$wpversion";
 
     add_action('admin_head', $callback, 10, 0);
+    add_action('customize_controls_print_styles', $callback, 20, 0);
 }
 
 /**
  * Calls my login_head output function based on WP version.
  *
- * @since 1.5
+ * @since 1.4.2
  */
 function miqro_contrast_login() {
     $oldest = 31;
@@ -76,7 +77,7 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.5-RC6.
+ * Tested and working on 3.5 through 3.6-beta1.
  * Corrects the styles found in:
  *  wp-admin/css/colors-classic.css
  *  wp-admin/css/colors-fresh.css
@@ -106,7 +107,7 @@ select,
 }
 <?php } else { ?>
 .postbox div.alt,
-.widefat,
+table.widefat,
 .plugins .inactive,
 .plugins .inactive th,
 .plugins .inactive td,
