@@ -2,7 +2,7 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
-Tested up to: 3.6
+Tested up to: 3.7
 Stable tag: 1.4.3
 
 Improves the visibility of administrative form fields and tables.
