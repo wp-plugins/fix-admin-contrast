@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin (miqrogroove)
- * @version: 1.4.3
+ * @version: 1.5
  * @copyright Copyright © 2010-2013 by Robert Chapin
  * @license GPL
  *
@@ -45,12 +45,13 @@ add_action('login_head', 'miqro_contrast_login', 10, 0);
  */
 function miqro_contrast_hook() {
     $oldest = 27;
-    $newest = 35;
+    $newest = 38;
 
     $wpversion = get_bloginfo('version');
     if (strlen($wpversion) < 3) return;
     $wpversion = min($newest, intval($wpversion[0].$wpversion[2]));
     if ($wpversion < $oldest) return;
+    if ($wpversion > 35 and $wpversion < 38) $wpversion = 35;
     if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
     $callback = "miqro_fix_admin_contrast_$wpversion";
 
@@ -77,7 +78,41 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.5 through 3.6-beta1.
+ * Tested and working on 3.8-RC1.
+ * Corrects the styles found in:
+ *  wp-admin/css/colors.css
+ *  wp-admin/css/colors/<*>/colors.css
+ */
+function miqro_fix_admin_contrast_38() {
+?>
+<style type="text/css">
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+.titlewrap input,
+select {
+    border-color: #BBB !important;
+}
+.alternate,
+.alt {
+    background-color: #EEE;
+}
+.plugins .active td,
+.plugins .active th,
+tr.active + tr.plugin-update-tr .plugin-update {
+    background-color: #e3f4f9;
+}
+</style>
+<?php
+}
+
+/**
+ * Tested and working on 3.5 through 3.7.1.
  * Corrects the styles found in:
  *  wp-admin/css/colors-classic.css
  *  wp-admin/css/colors-fresh.css
@@ -239,7 +274,7 @@ function miqro_fix_admin_contrast_27() {
 }
 
 /**
- * Tested and working on 3.1 through 3.5-RC6.
+ * Tested and working on 3.1 through 3.8-RC1.
  * Corrects login.css or wp-admin.css.
  */
 function miqro_fix_login_contrast_31() {

@@ -2,8 +2,8 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
-Tested up to: 3.7
-Stable tag: 1.4.3
+Tested up to: 3.8
+Stable tag: 1.5
 
 Improves the visibility of administrative form fields and tables.
 
@@ -31,6 +31,10 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 2. The login page, with the plugin enabled (left) and disabled (right).
 
 == Changelog ==
+
+= 1.5 =
+* Updated for WordPress 3.8, released 7 December 2013.
+* Revised alternating row colors for compatibility with new admin themes.
 
 = 1.4.3 =
 * Updated for WordPress 3.6, released 8 April 2013.
