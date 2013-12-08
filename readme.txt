@@ -30,7 +30,7 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 1. This is a comparison of the Categories page with the plugin enabled (top) and disabled (bottom).
 2. The login page, with the plugin enabled (left) and disabled (right).
 3. WordPress 3.8 preview, plugin disabled.
-3. WordPress 3.8 preview, plugin enabled.
+4. WordPress 3.8 preview, plugin enabled.
 
 == Changelog ==
 
