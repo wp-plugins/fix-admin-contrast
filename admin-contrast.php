@@ -9,8 +9,8 @@
  * Plugin URI: http://www.miqrogroove.com/pro/software/
  * Author URI: http://www.miqrogroove.com/
  *
- * @author: Robert Chapin (miqrogroove)
- * @version: 1.5
+ * @author: Robert Chapin
+ * @version: 1.5.1
  * @copyright Copyright © 2010-2013 by Robert Chapin
  * @license GPL
  *
@@ -106,6 +106,14 @@ select {
 .plugins .active th,
 tr.active + tr.plugin-update-tr .plugin-update {
     background-color: #e3f4f9;
+}
+.plugins .active.update td,
+.plugins .active.update th,
+tr.active.update + tr.plugin-update-tr .plugin-update,
+#activity-widget #the-comment-list .unapproved,
+#the-comment-list .unapproved th,
+#the-comment-list .unapproved td {
+    background-color: #fbe7e1;
 }
 </style>
 <?php
