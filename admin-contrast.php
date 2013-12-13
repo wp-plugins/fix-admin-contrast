@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.5.1
+ * @version: 1.5.2
  * @copyright Copyright © 2010-2013 by Robert Chapin
  * @license GPL
  *
@@ -104,7 +104,11 @@ select {
 }
 .plugins .active td,
 .plugins .active th,
-tr.active + tr.plugin-update-tr .plugin-update {
+tr.active + tr.plugin-update-tr .plugin-update,
+#contextual-help-back,
+.contextual-help-tabs .active,
+.contextual-help-tabs .active a,
+.contextual-help-tabs .active a:hover {
     background-color: #e3f4f9;
 }
 .plugins .active.update td,
@@ -114,6 +118,10 @@ tr.active.update + tr.plugin-update-tr .plugin-update,
 #the-comment-list .unapproved th,
 #the-comment-list .unapproved td {
     background-color: #fbe7e1;
+}
+#plugin-information pre,
+#plugin-information code {
+    background-color: #dddeff;
 }
 </style>
 <?php
