@@ -2,8 +2,8 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
-Tested up to: 3.8
-Stable tag: 1.5.2
+Tested up to: 3.9
+Stable tag: 1.5.3
 
 Improves the visibility of administrative form fields and tables.
 
@@ -33,6 +33,10 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 4. WordPress 3.8 preview, plugin enabled.
 
 == Changelog ==
+
+= 1.5.3 =
+* Widgets improvement, released 8 April 2014.
+* Fixed contrast on the widgets page for WordPress 3.8+.
 
 = 1.5.2 =
 * Updated for WordPress 3.8, released 13 December 2013.

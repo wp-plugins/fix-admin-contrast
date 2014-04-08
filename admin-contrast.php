@@ -10,8 +10,8 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.5.2
- * @copyright Copyright © 2010-2013 by Robert Chapin
+ * @version: 1.5.3
+ * @copyright Copyright © 2010-2014 by Robert Chapin
  * @license GPL
  *
  * This program is free software: you can redistribute it and/or modify
@@ -50,9 +50,11 @@ function miqro_contrast_hook() {
     $wpversion = get_bloginfo('version');
     if (strlen($wpversion) < 3) return;
     $wpversion = min($newest, intval($wpversion[0].$wpversion[2]));
-    if ($wpversion < $oldest) return;
-    if ($wpversion > 35 and $wpversion < 38) $wpversion = 35;
-    if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
+    if ($wpversion != $newest) {
+        if ($wpversion < $oldest) return;
+        if ($wpversion > 35 and $wpversion < 38) $wpversion = 35;
+        if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
+    }
     $callback = "miqro_fix_admin_contrast_$wpversion";
 
     add_action('admin_head', $callback, 10, 0);
@@ -78,9 +80,12 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.8-RC1.
+ * Tested and working on 3.8 through 3.9-RC1.
  * Corrects the styles found in:
  *  wp-admin/css/colors.css
+ *  wp-admin/css/common.css
+ *  wp-admin/css/forms.css
+ *  wp-admin/css/list-tables.css
  *  wp-admin/css/colors/<*>/colors.css
  */
 function miqro_fix_admin_contrast_38() {
@@ -95,7 +100,8 @@ input[type="search"],
 input[type="tel"],
 input[type="url"],
 .titlewrap input,
-select {
+select,
+.widget-top {
     border-color: #BBB !important;
 }
 .alternate,
@@ -290,7 +296,7 @@ function miqro_fix_admin_contrast_27() {
 }
 
 /**
- * Tested and working on 3.1 through 3.8-RC1.
+ * Tested and working on 3.1 through 3.9-RC1.
  * Corrects login.css or wp-admin.css.
  */
 function miqro_fix_login_contrast_31() {
