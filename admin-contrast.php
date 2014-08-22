@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.5.3
+ * @version: 1.5.4
  * @copyright Copyright © 2010-2014 by Robert Chapin
  * @license GPL
  *
@@ -80,17 +80,20 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.8 through 3.9-RC1.
+ * Tested and working on 3.8 through 4.0-beta4.
  * Corrects the styles found in:
  *  wp-admin/css/colors.css
  *  wp-admin/css/common.css
  *  wp-admin/css/forms.css
+ *  wp-admin/css/themes.css
  *  wp-admin/css/list-tables.css
  *  wp-admin/css/colors/<*>/colors.css
  */
 function miqro_fix_admin_contrast_38() {
 ?>
 <style type="text/css">
+input[type="checkbox"],
+input[type="radio"],
 textarea,
 input[type="text"],
 input[type="password"],
@@ -101,7 +104,8 @@ input[type="tel"],
 input[type="url"],
 .titlewrap input,
 select,
-.widget-top {
+.widget-top,
+.wp-editor-container {
     border-color: #BBB !important;
 }
 .alternate,
@@ -114,7 +118,8 @@ tr.active + tr.plugin-update-tr .plugin-update,
 #contextual-help-back,
 .contextual-help-tabs .active,
 .contextual-help-tabs .active a,
-.contextual-help-tabs .active a:hover {
+.contextual-help-tabs .active a:hover,
+.theme-overlay .parent-theme {
     background-color: #e3f4f9;
 }
 .plugins .active.update td,
@@ -122,7 +127,8 @@ tr.active + tr.plugin-update-tr .plugin-update,
 tr.active.update + tr.plugin-update-tr .plugin-update,
 #activity-widget #the-comment-list .unapproved,
 #the-comment-list .unapproved th,
-#the-comment-list .unapproved td {
+#the-comment-list .unapproved td,
+.theme-overlay .theme-update-message {
     background-color: #fbe7e1;
 }
 #plugin-information pre,
