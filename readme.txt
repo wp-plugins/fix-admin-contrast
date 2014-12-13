@@ -2,8 +2,8 @@
 Contributors: miqrogroove
 Tags: admin, contrast, input, inputs, field, fields, theme, iPad
 Requires at least: 2.7
-Tested up to: 4.0
-Stable tag: 1.5.4
+Tested up to: 4.1
+Stable tag: 1.5.5
 
 Improves the visibility of administrative form fields and tables.
 
@@ -33,6 +33,11 @@ Deactivation removes everything except the files you uploaded.  There is no "uni
 4. Fix Admin Contrast is still compatible with with older versions down to 2.7.
 
 == Changelog ==
+
+= 1.5.5 =
+* Updated for WordPress 4.1, released 13 December 2014.
+* Fixed contrast in DFW editor.
+* Reverted fix for checkboxes, which was resolved during 4.0 betas.
 
 = 1.5.4 =
 * Improvements for WordPress 3.8 through 4.0, released 22 August 2014.

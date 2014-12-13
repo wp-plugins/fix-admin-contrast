@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.5.5 beta
+ * @version: 1.5.5
  * @copyright Copyright © 2010-2014 by Robert Chapin
  * @license GPL
  *
@@ -105,11 +105,14 @@ select,
 .widget-top {
     border-color: #BBB !important;
 }
-.wp-editor-container {
+.wp-editor-container, .wp-fullscreen-wrap #title {
     border: #BBB 1px solid !important;
 }
 .has-dfw .wp-editor-container {
-	border-top-width: 2px !important;
+    border-top-width: 2px !important;
+}
+.wp-fullscreen-wrap .wp-editor-container {
+    border-top-width: 1px !important;
 }
 .alternate,
 .alt {
