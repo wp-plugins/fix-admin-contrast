@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.5.4
+ * @version: 1.5.5 beta
  * @copyright Copyright © 2010-2014 by Robert Chapin
  * @license GPL
  *
@@ -80,7 +80,7 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.8 through 4.0-beta4.
+ * Tested and working on 3.8 through 4.1-RC1.
  * Corrects the styles found in:
  *  wp-admin/css/colors.css
  *  wp-admin/css/common.css
@@ -92,8 +92,6 @@ function miqro_contrast_login() {
 function miqro_fix_admin_contrast_38() {
 ?>
 <style type="text/css">
-input[type="checkbox"],
-input[type="radio"],
 textarea,
 input[type="text"],
 input[type="password"],
@@ -104,9 +102,14 @@ input[type="tel"],
 input[type="url"],
 .titlewrap input,
 select,
-.widget-top,
-.wp-editor-container {
+.widget-top {
     border-color: #BBB !important;
+}
+.wp-editor-container {
+    border: #BBB 1px solid !important;
+}
+.has-dfw .wp-editor-container {
+	border-top-width: 2px !important;
 }
 .alternate,
 .alt {
@@ -302,7 +305,7 @@ function miqro_fix_admin_contrast_27() {
 }
 
 /**
- * Tested and working on 3.1 through 3.9-RC1.
+ * Tested and working on 3.1 through 4.1-RC1.
  * Corrects login.css or wp-admin.css.
  */
 function miqro_fix_login_contrast_31() {
