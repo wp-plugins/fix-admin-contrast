@@ -10,8 +10,8 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.5.5
- * @copyright Copyright © 2010-2014 by Robert Chapin
+ * @version: 1.6 beta
+ * @copyright Copyright © 2010-2015 by Robert Chapin
  * @license GPL
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,13 +45,14 @@ add_action('login_head', 'miqro_contrast_login', 10, 0);
  */
 function miqro_contrast_hook() {
     $oldest = 27;
-    $newest = 38;
+    $newest = 42;
 
     $wpversion = get_bloginfo('version');
     if (strlen($wpversion) < 3) return;
     $wpversion = min($newest, intval($wpversion[0].$wpversion[2]));
     if ($wpversion != $newest) {
         if ($wpversion < $oldest) return;
+        if ($wpversion > 38 and $wpversion < 42) $wpversion = 38;
         if ($wpversion > 35 and $wpversion < 38) $wpversion = 35;
         if ($wpversion > 29 and $wpversion < 34) $wpversion = 29;
     }
@@ -80,7 +81,67 @@ function miqro_contrast_login() {
 }
 
 /**
- * Tested and working on 3.8 through 4.1-RC1.
+ * Tested and working on 4.2-beta3.
+ * Corrects the styles found in:
+ *  wp-admin/css/common.css
+ *  wp-admin/css/forms.css
+ *  wp-admin/css/themes.css
+ *  wp-admin/css/list-tables.css
+ */
+function miqro_fix_admin_contrast_42() {
+?>
+<style type="text/css">
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+select,
+textarea,
+.widget-top {
+    border-color: #BBB !important;
+}
+.wp-editor-container {
+    border: #BBB 1px solid !important;
+}
+.has-dfw .wp-editor-container {
+    border-top-width: 2px !important;
+}
+.striped > tbody > :nth-child(odd),
+.alternate {
+    background-color: #EEE;
+}
+.plugins .active td,
+.plugins .active th,
+tr.active + tr.plugin-update-tr .plugin-update,
+#contextual-help-back,
+.contextual-help-tabs .active,
+.contextual-help-tabs .active a,
+.contextual-help-tabs .active a:hover,
+.theme-overlay .parent-theme {
+    background-color: #e3f4f9;
+}
+.plugins .active.update td,
+.plugins .active.update th,
+tr.active.update + tr.plugin-update-tr .plugin-update,
+#activity-widget #the-comment-list .unapproved,
+#the-comment-list .unapproved th,
+#the-comment-list .unapproved td,
+.theme-overlay .theme-update-message {
+    background-color: #fbe7e1;
+}
+#plugin-information pre,
+#plugin-information code {
+    background-color: #dddeff;
+}
+</style>
+<?php
+}
+
+/**
+ * Tested and working on 3.8 through 4.1.1.
  * Corrects the styles found in:
  *  wp-admin/css/colors.css
  *  wp-admin/css/common.css
