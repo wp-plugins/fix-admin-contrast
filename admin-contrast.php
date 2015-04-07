@@ -10,7 +10,7 @@
  * Author URI: http://www.miqrogroove.com/
  *
  * @author: Robert Chapin
- * @version: 1.6 beta
+ * @version: 1.6
  * @copyright Copyright © 2010-2015 by Robert Chapin
  * @license GPL
  *
